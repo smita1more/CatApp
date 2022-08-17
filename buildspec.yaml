@@ -4,7 +4,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION
       - REPOSITORY_URI=785517377502.dkr.ecr.us-east-2.amazonaws.com/catnip
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
