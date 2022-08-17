@@ -23,5 +23,7 @@ post_build:
       - echo Writing image definitions file...
       - printf '[{"name":"CatAppContainer","imageUri":"%s"}]'    $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - cat imagedefinitions.json
+      - ls -lrt
+      - pwd
 artifacts:
   files: imagedefinitions.json
